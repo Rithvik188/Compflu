@@ -47,6 +47,39 @@ def create_train_test_split(dataset: Dict[float, Tuple[np.ndarray, np.ndarray]],
             
     return train_data, test_data
 
+def preprocess(dataset: Dict[float, Tuple[np.ndarray, np.ndarray]], floor: float = 1e-20,
+               smooth_window: int = 41):
+    """
+    Cleans the raw trajectories for analysis.
+    - Drops the last row (it has dt=0.05 instead of the uniform dt=0.5).
+    - Works in y = log10(K); values below `floor` are numerical noise of the
+      arrested state (the true floor is ~1.6e-26), so we cut there.
+    - Returns a dict force -> dict(t, K, y, y_s, i_arr, t_arr, dt) where y_s is a
+      centred moving average of y and i_arr is the first index with K < floor
+      (len(t) if the trajectory never arrests).
+    """
+    from scipy.ndimage import uniform_filter1d
+
+    out = {}
+    for f in sorted(dataset.keys()):
+        t, K = dataset[f]
+        t, K = t[:-1], K[:-1]
+        below = np.where(K < floor)[0]
+        i_arr = int(below[0]) if len(below) else len(t)
+        y = np.log10(np.clip(K, 1e-30, None))
+        y_s = y.copy()
+        y_s[:i_arr] = uniform_filter1d(y[:i_arr], smooth_window, mode='nearest')
+        out[f] = dict(t=t, K=K, y=y, y_s=y_s, i_arr=i_arr,
+                      t_arr=t[i_arr] if i_arr < len(t) else np.inf,
+                      dt=float(t[1] - t[0]))
+    return out
+
+def load_clean(raw_dir: str = None, **kwargs):
+    """Convenience: load + preprocess from data/raw."""
+    if raw_dir is None:
+        raw_dir = os.path.join(os.path.dirname(__file__), "..", "data", "raw")
+    return preprocess(load_and_preprocess_data(raw_dir), **kwargs)
+
 if __name__ == "__main__":
     raw_dir = os.path.join(os.path.dirname(__file__), "..", "data", "raw")
     
