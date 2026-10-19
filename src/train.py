@@ -80,5 +80,67 @@ def train_model():
     torch.save(model.state_dict(), save_path)
     print(f"Model saved to {save_path}")
 
+def prepare_rollout_windows(series_dict, window, horizon, f_norm):
+    """series_dict: f -> 1D normalised series. Returns x0 (N, window), future windows
+    (N, horizon, window) and forces (N, 1) for multi-step training."""
+    X0, XF, F = [], [], []
+    for f, s in series_dict.items():
+        n = len(s) - window - horizon
+        if n <= 0:
+            continue
+        idx = np.arange(window)[None, :] + np.arange(n)[:, None]
+        W = s[idx]                                                   # (n, window)
+        fut = np.stack([s[idx + k] for k in range(1, horizon + 1)], axis=1)
+        X0.append(W)
+        XF.append(fut)
+        F.append(np.full((n, 1), f_norm(f)))
+    return (torch.tensor(np.concatenate(X0), dtype=torch.float32),
+            torch.tensor(np.concatenate(XF), dtype=torch.float32),
+            torch.tensor(np.concatenate(F), dtype=torch.float32))
+
+
+def train_rollout(series_dict, f_norm, window=20, horizon=40, latent_dim=10, hidden_dim=64,
+                  epochs=30, batch_size=512, lr=1e-3, w_latent=0.1, seed=0, verbose=True):
+    """
+    Force-conditioned Koopman AE trained for FREE-RUNNING prediction: the loss compares
+    decoder(K(f)^k z_0) with the true window k steps ahead for k = 1..horizon, plus a
+    latent-consistency term ||K^k z_0 - enc(x_k)||. Unlike train_model(), the model never
+    sees ground truth after the initial window inside the loss.
+    """
+    torch.manual_seed(seed)
+    np.random.seed(seed)
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    X0, XF, F = prepare_rollout_windows(series_dict, window, horizon, f_norm)
+    loader = DataLoader(TensorDataset(X0, XF, F), batch_size=batch_size, shuffle=True)
+    model = ForceConditionedKoopmanAE(input_dim=window, latent_dim=latent_dim, hidden_dim=hidden_dim).to(device)
+    opt = optim.Adam(model.parameters(), lr=lr)
+    sched = optim.lr_scheduler.CosineAnnealingLR(opt, epochs)
+    mse = nn.MSELoss()
+    for ep in range(epochs):
+        model.train()
+        tot = 0.0
+        for x0, xf, f in loader:
+            x0, xf, f = x0.to(device), xf.to(device), f.to(device)
+            K = model.koopman_matrix(f)
+            z = model.encoder(x0)
+            loss = mse(model.decoder(z), x0)
+            pred_loss, lat_loss = 0.0, 0.0
+            for k in range(horizon):
+                z = torch.bmm(K, z.unsqueeze(2)).squeeze(2)
+                pred_loss = pred_loss + mse(model.decoder(z), xf[:, k])
+                lat_loss = lat_loss + mse(z, model.encoder(xf[:, k]))
+            loss = loss + pred_loss / horizon + w_latent * lat_loss / horizon
+            opt.zero_grad()
+            loss.backward()
+            torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+            opt.step()
+            tot += loss.item()
+        sched.step()
+        if verbose and (ep + 1) % 10 == 0:
+            print(f"   epoch {ep + 1}/{epochs}  loss {tot / len(loader):.4e}")
+    model.eval()
+    return model
+
+
 if __name__ == "__main__":
     train_model()

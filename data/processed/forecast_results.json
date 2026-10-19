@@ -1,0 +1,1889 @@
+{
+  "protocol_a": {
+    "1.0": {
+      "HDMD-param": {
+        "rmse_full": 1.7898029615902515,
+        "rmse_slow": 3.8046046321223828,
+        "t_arr_true": 1650.0,
+        "t_arr_pred": 855.0,
+        "t_arr_rel_err": -0.4818181818181818
+      },
+      "DeepKoopman": {
+        "rmse_full": 19.00320518519351,
+        "rmse_slow": 4.3689920486922125,
+        "t_arr_true": 1650.0,
+        "t_arr_pred": Infinity,
+        "t_arr_rel_err": Infinity
+      },
+      "MasterCurve": {
+        "rmse_full": 0.23822595747511768,
+        "rmse_slow": 0.6110445576282144,
+        "t_arr_true": 1650.0,
+        "t_arr_pred": 1820.0,
+        "t_arr_rel_err": 0.10303030303030303
+      },
+      "ODE-B": {
+        "rmse_full": 2.62222447432182,
+        "rmse_slow": 0.8633439368155398,
+        "t_arr_true": 1650.0,
+        "t_arr_pred": 2760.0,
+        "t_arr_rel_err": 0.6727272727272727
+      }
+    },
+    "1.05": {
+      "HDMD-param": {
+        "rmse_full": 2.8066105194801976,
+        "rmse_slow": 4.034307815898171,
+        "t_arr_true": 2670.0,
+        "t_arr_pred": 695.0,
+        "t_arr_rel_err": -0.7397003745318352
+      },
+      "DeepKoopman": {
+        "rmse_full": 19.120880057340724,
+        "rmse_slow": 4.278681939224763,
+        "t_arr_true": 2670.0,
+        "t_arr_pred": Infinity,
+        "t_arr_rel_err": Infinity
+      },
+      "MasterCurve": {
+        "rmse_full": 2.893911095866006,
+        "rmse_slow": 0.6281203795655389,
+        "t_arr_true": 2670.0,
+        "t_arr_pred": 1575.0,
+        "t_arr_rel_err": -0.4101123595505618
+      },
+      "ODE-B": {
+        "rmse_full": 2.096954172050396,
+        "rmse_slow": 0.741136322559184,
+        "t_arr_true": 2670.0,
+        "t_arr_pred": 2095.0,
+        "t_arr_rel_err": -0.2153558052434457
+      }
+    },
+    "1.15": {
+      "HDMD-param": {
+        "rmse_full": 2.9101843188584686,
+        "rmse_slow": 4.365298395204203,
+        "t_arr_true": 3290.0,
+        "t_arr_pred": 895.0,
+        "t_arr_rel_err": -0.7279635258358662
+      },
+      "DeepKoopman": {
+        "rmse_full": 18.11661038580718,
+        "rmse_slow": 4.569388347529288,
+        "t_arr_true": 3290.0,
+        "t_arr_pred": Infinity,
+        "t_arr_rel_err": Infinity
+      },
+      "MasterCurve": {
+        "rmse_full": 2.3954560274252765,
+        "rmse_slow": 0.3125523393117262,
+        "t_arr_true": 3290.0,
+        "t_arr_pred": 2490.0,
+        "t_arr_rel_err": -0.24316109422492402
+      },
+      "ODE-B": {
+        "rmse_full": 1.059175307297296,
+        "rmse_slow": 0.45191412393242064,
+        "t_arr_true": 3290.0,
+        "t_arr_pred": 3130.0,
+        "t_arr_rel_err": -0.0486322188449848
+      }
+    },
+    "1.25": {
+      "HDMD-param": {
+        "rmse_full": 2.7194210225459177,
+        "rmse_slow": 4.397298670183144,
+        "t_arr_true": 3310.0,
+        "t_arr_pred": 1360.0,
+        "t_arr_rel_err": -0.5891238670694864
+      },
+      "DeepKoopman": {
+        "rmse_full": 18.915788643130963,
+        "rmse_slow": 3.8381409749484576,
+        "t_arr_true": 3310.0,
+        "t_arr_pred": Infinity,
+        "t_arr_rel_err": Infinity
+      },
+      "MasterCurve": {
+        "rmse_full": 0.6204790969910681,
+        "rmse_slow": 0.32726472746838514,
+        "t_arr_true": 3310.0,
+        "t_arr_pred": 3240.0,
+        "t_arr_rel_err": -0.021148036253776436
+      },
+      "ODE-B": {
+        "rmse_full": 2.6763001894738947,
+        "rmse_slow": 0.432548767038784,
+        "t_arr_true": 3310.0,
+        "t_arr_pred": 4340.0,
+        "t_arr_rel_err": 0.311178247734139
+      }
+    },
+    "1.35": {
+      "HDMD-param": {
+        "rmse_full": 3.60458833849511,
+        "rmse_slow": 4.528265766522432,
+        "t_arr_true": 5285.0,
+        "t_arr_pred": 1720.0,
+        "t_arr_rel_err": -0.674550614947966
+      },
+      "DeepKoopman": {
+        "rmse_full": 18.232682965300654,
+        "rmse_slow": 4.184599202443932,
+        "t_arr_true": 5285.0,
+        "t_arr_pred": Infinity,
+        "t_arr_rel_err": Infinity
+      },
+      "MasterCurve": {
+        "rmse_full": 2.320415492319387,
+        "rmse_slow": 0.3731815428659028,
+        "t_arr_true": 5285.0,
+        "t_arr_pred": 4520.0,
+        "t_arr_rel_err": -0.14474929044465468
+      },
+      "ODE-B": {
+        "rmse_full": 1.920567121291808,
+        "rmse_slow": 0.4981247364483202,
+        "t_arr_true": 5285.0,
+        "t_arr_pred": 5840.0,
+        "t_arr_rel_err": 0.10501419110690634
+      }
+    },
+    "1.4": {
+      "HDMD-param": {
+        "rmse_full": 3.9098981480481276,
+        "rmse_slow": 4.616011988220474,
+        "t_arr_true": 6285.0,
+        "t_arr_pred": 2065.0,
+        "t_arr_rel_err": -0.6714399363564041
+      },
+      "DeepKoopman": {
+        "rmse_full": 17.87403063955361,
+        "rmse_slow": 4.254326435817543,
+        "t_arr_true": 6285.0,
+        "t_arr_pred": Infinity,
+        "t_arr_rel_err": Infinity
+      },
+      "MasterCurve": {
+        "rmse_full": 2.454324909712542,
+        "rmse_slow": 0.3094286274568414,
+        "t_arr_true": 6285.0,
+        "t_arr_pred": 5400.0,
+        "t_arr_rel_err": -0.14081145584725538
+      },
+      "ODE-B": {
+        "rmse_full": 1.9274361732052936,
+        "rmse_slow": 0.558376104221539,
+        "t_arr_true": 6285.0,
+        "t_arr_pred": 6840.0,
+        "t_arr_rel_err": 0.0883054892601432
+      }
+    },
+    "1.45": {
+      "HDMD-param": {
+        "rmse_full": 4.47158751614701,
+        "rmse_slow": 4.571849424584372,
+        "t_arr_true": 7560.0,
+        "t_arr_pred": 2380.0,
+        "t_arr_rel_err": -0.6851851851851852
+      },
+      "DeepKoopman": {
+        "rmse_full": 17.38237311011809,
+        "rmse_slow": 3.858713608491935,
+        "t_arr_true": 7560.0,
+        "t_arr_pred": Infinity,
+        "t_arr_rel_err": Infinity
+      },
+      "MasterCurve": {
+        "rmse_full": 2.5048611695726755,
+        "rmse_slow": 0.1916044538032001,
+        "t_arr_true": 7560.0,
+        "t_arr_pred": 6675.0,
+        "t_arr_rel_err": -0.11706349206349206
+      },
+      "ODE-B": {
+        "rmse_full": 2.959263466853121,
+        "rmse_slow": 0.3695743310330916,
+        "t_arr_true": 7560.0,
+        "t_arr_pred": 8815.0,
+        "t_arr_rel_err": 0.16600529100529102
+      }
+    },
+    "1.5": {
+      "HDMD-param": {
+        "rmse_full": 4.366278621657564,
+        "rmse_slow": 4.635415664332447,
+        "t_arr_true": 7640.0,
+        "t_arr_pred": 3250.0,
+        "t_arr_rel_err": -0.574607329842932
+      },
+      "DeepKoopman": {
+        "rmse_full": 17.34284583420803,
+        "rmse_slow": 3.6895071951244733,
+        "t_arr_true": 7640.0,
+        "t_arr_pred": Infinity,
+        "t_arr_rel_err": Infinity
+      },
+      "MasterCurve": {
+        "rmse_full": 2.5937404546008263,
+        "rmse_slow": 0.3500625210060127,
+        "t_arr_true": 7640.0,
+        "t_arr_pred": 8515.0,
+        "t_arr_rel_err": 0.11452879581151833
+      },
+      "ODE-B": {
+        "rmse_full": 5.105576897481176,
+        "rmse_slow": 0.45868326657428676,
+        "t_arr_true": 7640.0,
+        "t_arr_pred": 11090.0,
+        "t_arr_rel_err": 0.45157068062827227
+      }
+    },
+    "1.55": {
+      "HDMD-param": {
+        "rmse_full": 5.743518788786186,
+        "rmse_slow": 4.873878597949342,
+        "t_arr_true": 11085.0,
+        "t_arr_pred": 3625.0,
+        "t_arr_rel_err": -0.6729815065403699
+      },
+      "DeepKoopman": {
+        "rmse_full": 14.018420735833763,
+        "rmse_slow": 3.7120242191441513,
+        "t_arr_true": 11085.0,
+        "t_arr_pred": Infinity,
+        "t_arr_rel_err": Infinity
+      },
+      "MasterCurve": {
+        "rmse_full": 1.7954187375794173,
+        "rmse_slow": 0.18054233778390302,
+        "t_arr_true": 11085.0,
+        "t_arr_pred": 10605.0,
+        "t_arr_rel_err": -0.04330175913396482
+      },
+      "ODE-B": {
+        "rmse_full": 5.016741922811923,
+        "rmse_slow": 0.37513796933611965,
+        "t_arr_true": 11085.0,
+        "t_arr_pred": 14475.0,
+        "t_arr_rel_err": 0.30581867388362655
+      }
+    },
+    "1.6": {
+      "HDMD-param": {
+        "rmse_full": 6.872176365170235,
+        "rmse_slow": 4.959781523005404,
+        "t_arr_true": 16690.0,
+        "t_arr_pred": 6250.0,
+        "t_arr_rel_err": -0.6255242660275614
+      },
+      "DeepKoopman": {
+        "rmse_full": 13.49261924206832,
+        "rmse_slow": 3.726694547367547,
+        "t_arr_true": 16690.0,
+        "t_arr_pred": Infinity,
+        "t_arr_rel_err": Infinity
+      },
+      "MasterCurve": {
+        "rmse_full": 4.592201677227964,
+        "rmse_slow": 0.19900957505007213,
+        "t_arr_true": 16690.0,
+        "t_arr_pred": 13890.0,
+        "t_arr_rel_err": -0.1677651288196525
+      },
+      "ODE-B": {
+        "rmse_full": 3.6425428647591334,
+        "rmse_slow": 0.24905697034422727,
+        "t_arr_true": 16690.0,
+        "t_arr_pred": 18565.0,
+        "t_arr_rel_err": 0.11234272019173158
+      }
+    },
+    "1.65": {
+      "HDMD-param": {
+        "rmse_full": 5.623995738854002,
+        "rmse_slow": 2.8981653957239977,
+        "t_arr_true": 23630.0,
+        "t_arr_pred": Infinity,
+        "t_arr_rel_err": Infinity
+      },
+      "DeepKoopman": {
+        "rmse_full": 9.477967511112121,
+        "rmse_slow": 3.535648586727018,
+        "t_arr_true": 23630.0,
+        "t_arr_pred": Infinity,
+        "t_arr_rel_err": Infinity
+      },
+      "MasterCurve": {
+        "rmse_full": 5.756201457015995,
+        "rmse_slow": 0.3021466585473041,
+        "t_arr_true": 23630.0,
+        "t_arr_pred": 19470.0,
+        "t_arr_rel_err": -0.17604739737621666
+      },
+      "ODE-B": {
+        "rmse_full": 3.6624224142622404,
+        "rmse_slow": 0.20765650396594942,
+        "t_arr_true": 23630.0,
+        "t_arr_pred": 25540.0,
+        "t_arr_rel_err": 0.08082945408379179
+      }
+    },
+    "1.8": {
+      "HDMD-param": {
+        "rmse_full": 0.3293028296691779,
+        "rmse_slow": 0.3293028296691779,
+        "t_arr_true": Infinity,
+        "t_arr_pred": Infinity,
+        "t_arr_rel_err": 0.0
+      },
+      "DeepKoopman": {
+        "rmse_full": 1.7459648492240978,
+        "rmse_slow": 1.7459648492240978,
+        "t_arr_true": Infinity,
+        "t_arr_pred": Infinity,
+        "t_arr_rel_err": 0.0
+      },
+      "MasterCurve": {
+        "rmse_full": 0.5001536220296274,
+        "rmse_slow": 0.5001536220296274,
+        "t_arr_true": Infinity,
+        "t_arr_pred": Infinity,
+        "t_arr_rel_err": 0.0
+      },
+      "ODE-B": {
+        "rmse_full": 0.6940385343076098,
+        "rmse_slow": 0.6940385343076098,
+        "t_arr_true": Infinity,
+        "t_arr_pred": Infinity,
+        "t_arr_rel_err": 0.0
+      }
+    },
+    "2.0": {
+      "HDMD-param": {
+        "rmse_full": 0.5778377701532136,
+        "rmse_slow": 0.5778377701532136,
+        "t_arr_true": Infinity,
+        "t_arr_pred": Infinity,
+        "t_arr_rel_err": 0.0
+      },
+      "DeepKoopman": {
+        "rmse_full": 1.6475662046619124,
+        "rmse_slow": 1.6475662046619124,
+        "t_arr_true": Infinity,
+        "t_arr_pred": Infinity,
+        "t_arr_rel_err": 0.0
+      },
+      "MasterCurve": {
+        "rmse_full": 0.208245944856911,
+        "rmse_slow": 0.208245944856911,
+        "t_arr_true": Infinity,
+        "t_arr_pred": Infinity,
+        "t_arr_rel_err": 0.0
+      },
+      "ODE-B": {
+        "rmse_full": 0.4105997283850493,
+        "rmse_slow": 0.4105997283850493,
+        "t_arr_true": Infinity,
+        "t_arr_pred": Infinity,
+        "t_arr_rel_err": 0.0
+      }
+    }
+  },
+  "protocol_b": {
+    "1.0": {
+      "0.1": {
+        "HDMD-prefix": {
+          "rmse_full": 16.115109726667708,
+          "rmse_slow": 1.626053060386723,
+          "t_arr_true": 1650.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "DeepKoopman": {
+          "rmse_full": 19.059826799314035,
+          "rmse_slow": 4.077656167966726,
+          "t_arr_true": 1650.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "MasterCurve": {
+          "rmse_full": 2.319677558735647,
+          "rmse_slow": 0.7428614429884324,
+          "t_arr_true": 1650.0,
+          "t_arr_pred": 1015.0,
+          "t_arr_rel_err": -0.38484848484848483
+        },
+        "ODE-B": {
+          "rmse_full": 2.126347367436339,
+          "rmse_slow": 0.7728124555074973,
+          "t_arr_true": 1650.0,
+          "t_arr_pred": 2455.0,
+          "t_arr_rel_err": 0.48787878787878786
+        },
+        "fitted_tau_a": [
+          1002.8245644644899,
+          -0.057277395130654614
+        ]
+      },
+      "0.25": {
+        "HDMD-prefix": {
+          "rmse_full": 14.643806009079537,
+          "rmse_slow": 0.9705277617924171,
+          "t_arr_true": 1650.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "DeepKoopman": {
+          "rmse_full": 2.9994353032885557,
+          "rmse_slow": 1.3431097968998584,
+          "t_arr_true": 1650.0,
+          "t_arr_pred": 1000.0,
+          "t_arr_rel_err": -0.3939393939393939
+        },
+        "MasterCurve": {
+          "rmse_full": 1.538975280590924,
+          "rmse_slow": 0.5026114407198828,
+          "t_arr_true": 1650.0,
+          "t_arr_pred": 1425.0,
+          "t_arr_rel_err": -0.13636363636363635
+        },
+        "ODE-B": {
+          "rmse_full": 3.1501984591506074,
+          "rmse_slow": 0.9779542397689331,
+          "t_arr_true": 1650.0,
+          "t_arr_pred": 3165.0,
+          "t_arr_rel_err": 0.9181818181818182
+        },
+        "fitted_tau_a": [
+          1411.0895895170847,
+          -0.15506108445473754
+        ]
+      },
+      "0.5": {
+        "HDMD-prefix": {
+          "rmse_full": 8.98743952307861,
+          "rmse_slow": 0.6820420442528793,
+          "t_arr_true": 1650.0,
+          "t_arr_pred": 6765.0,
+          "t_arr_rel_err": 3.1
+        },
+        "DeepKoopman": {
+          "rmse_full": 2.4253474279694447,
+          "rmse_slow": 1.4595734231263668,
+          "t_arr_true": 1650.0,
+          "t_arr_pred": 1240.0,
+          "t_arr_rel_err": -0.24848484848484848
+        },
+        "MasterCurve": {
+          "rmse_full": 1.3297872372365132,
+          "rmse_slow": 0.5239779970071328,
+          "t_arr_true": 1650.0,
+          "t_arr_pred": 1515.0,
+          "t_arr_rel_err": -0.08181818181818182
+        },
+        "ODE-B": {
+          "rmse_full": 1.5702070334448877,
+          "rmse_slow": 1.0234907009114016,
+          "t_arr_true": 1650.0,
+          "t_arr_pred": 2165.0,
+          "t_arr_rel_err": 0.31212121212121213
+        },
+        "fitted_tau_a": [
+          1504.4106262565854,
+          -0.18583368917911433
+        ]
+      }
+    },
+    "1.05": {
+      "0.1": {
+        "HDMD-prefix": {
+          "rmse_full": 3.9802651782369507,
+          "rmse_slow": 2.356328639342938,
+          "t_arr_true": 2670.0,
+          "t_arr_pred": 665.0,
+          "t_arr_rel_err": -0.7509363295880149
+        },
+        "DeepKoopman": {
+          "rmse_full": 19.173880211916465,
+          "rmse_slow": 4.207909374345729,
+          "t_arr_true": 2670.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "MasterCurve": {
+          "rmse_full": 3.0645857969141304,
+          "rmse_slow": 0.7152017065651066,
+          "t_arr_true": 2670.0,
+          "t_arr_pred": 1455.0,
+          "t_arr_rel_err": -0.4550561797752809
+        },
+        "ODE-B": {
+          "rmse_full": 2.2354819070114376,
+          "rmse_slow": 0.9282651023125341,
+          "t_arr_true": 2670.0,
+          "t_arr_pred": 2020.0,
+          "t_arr_rel_err": -0.24344569288389514
+        },
+        "fitted_tau_a": [
+          1441.5349931875771,
+          0.030443203039962046
+        ]
+      },
+      "0.25": {
+        "HDMD-prefix": {
+          "rmse_full": 13.297766317811384,
+          "rmse_slow": 0.46021914042015066,
+          "t_arr_true": 2670.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "DeepKoopman": {
+          "rmse_full": 19.290715105988827,
+          "rmse_slow": 3.129710101455091,
+          "t_arr_true": 2670.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "MasterCurve": {
+          "rmse_full": 2.540498541368745,
+          "rmse_slow": 0.5566246301429969,
+          "t_arr_true": 2670.0,
+          "t_arr_pred": 1835.0,
+          "t_arr_rel_err": -0.31273408239700373
+        },
+        "ODE-B": {
+          "rmse_full": 1.2285425386956383,
+          "rmse_slow": 0.7910888321204708,
+          "t_arr_true": 2670.0,
+          "t_arr_pred": 2495.0,
+          "t_arr_rel_err": -0.06554307116104868
+        },
+        "fitted_tau_a": [
+          1823.0635417726899,
+          -0.038295899471157024
+        ]
+      },
+      "0.5": {
+        "HDMD-prefix": {
+          "rmse_full": 13.925638469452444,
+          "rmse_slow": 0.6098425397243009,
+          "t_arr_true": 2670.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "DeepKoopman": {
+          "rmse_full": 1.9715162066769238,
+          "rmse_slow": 1.3888131974370734,
+          "t_arr_true": 2670.0,
+          "t_arr_pred": 2080.0,
+          "t_arr_rel_err": -0.2209737827715356
+        },
+        "MasterCurve": {
+          "rmse_full": 1.8944658896939799,
+          "rmse_slow": 0.712147937803684,
+          "t_arr_true": 2670.0,
+          "t_arr_pred": 2225.0,
+          "t_arr_rel_err": -0.16666666666666666
+        },
+        "ODE-B": {
+          "rmse_full": 1.0880341277855536,
+          "rmse_slow": 0.5623178737311029,
+          "t_arr_true": 2670.0,
+          "t_arr_pred": 2955.0,
+          "t_arr_rel_err": 0.10674157303370786
+        },
+        "fitted_tau_a": [
+          2209.21111519318,
+          -0.1469866695657705
+        ]
+      }
+    },
+    "1.15": {
+      "0.1": {
+        "HDMD-prefix": {
+          "rmse_full": 2.145520064064757,
+          "rmse_slow": 1.8481199209446761,
+          "t_arr_true": 3290.0,
+          "t_arr_pred": 2210.0,
+          "t_arr_rel_err": -0.3282674772036474
+        },
+        "DeepKoopman": {
+          "rmse_full": 18.271859942069636,
+          "rmse_slow": 4.640404397727869,
+          "t_arr_true": 3290.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "MasterCurve": {
+          "rmse_full": 2.7221342357947353,
+          "rmse_slow": 0.3883084455343395,
+          "t_arr_true": 3290.0,
+          "t_arr_pred": 2270.0,
+          "t_arr_rel_err": -0.3100303951367781
+        },
+        "ODE-B": {
+          "rmse_full": 2.2696108051084622,
+          "rmse_slow": 0.6227425484973181,
+          "t_arr_true": 3290.0,
+          "t_arr_pred": 4085.0,
+          "t_arr_rel_err": 0.24164133738601823
+        },
+        "fitted_tau_a": [
+          2256.8766388389295,
+          0.20422419352373905
+        ]
+      },
+      "0.25": {
+        "HDMD-prefix": {
+          "rmse_full": 1.1169706351755357,
+          "rmse_slow": 1.9350722846507338,
+          "t_arr_true": 3290.0,
+          "t_arr_pred": 2885.0,
+          "t_arr_rel_err": -0.12310030395136778
+        },
+        "DeepKoopman": {
+          "rmse_full": 18.60232899045657,
+          "rmse_slow": 4.524559364024899,
+          "t_arr_true": 3290.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "MasterCurve": {
+          "rmse_full": 2.8713358749230253,
+          "rmse_slow": 0.4326467503743332,
+          "t_arr_true": 3290.0,
+          "t_arr_pred": 2175.0,
+          "t_arr_rel_err": -0.33890577507598785
+        },
+        "ODE-B": {
+          "rmse_full": 1.321567175596925,
+          "rmse_slow": 0.5348469220257903,
+          "t_arr_true": 3290.0,
+          "t_arr_pred": 3600.0,
+          "t_arr_rel_err": 0.09422492401215805
+        },
+        "fitted_tau_a": [
+          2162.5522935112544,
+          0.216399175841191
+        ]
+      },
+      "0.5": {
+        "HDMD-prefix": {
+          "rmse_full": 2.9184857074056545,
+          "rmse_slow": 1.1276730642428,
+          "t_arr_true": 3290.0,
+          "t_arr_pred": 4290.0,
+          "t_arr_rel_err": 0.303951367781155
+        },
+        "DeepKoopman": {
+          "rmse_full": 4.256082474052374,
+          "rmse_slow": 1.7431717524153816,
+          "t_arr_true": 3290.0,
+          "t_arr_pred": 1930.0,
+          "t_arr_rel_err": -0.4133738601823708
+        },
+        "MasterCurve": {
+          "rmse_full": 3.089239453787277,
+          "rmse_slow": 0.7581388711581694,
+          "t_arr_true": 3290.0,
+          "t_arr_pred": 2040.0,
+          "t_arr_rel_err": -0.3799392097264438
+        },
+        "ODE-B": {
+          "rmse_full": 2.5913611425978336,
+          "rmse_slow": 0.7232949177799918,
+          "t_arr_true": 3290.0,
+          "t_arr_pred": 2410.0,
+          "t_arr_rel_err": -0.2674772036474164
+        },
+        "fitted_tau_a": [
+          2028.4056592668398,
+          0.2507654039396561
+        ]
+      }
+    },
+    "1.25": {
+      "0.1": {
+        "HDMD-prefix": {
+          "rmse_full": 3.415772434251771,
+          "rmse_slow": 0.684191288118674,
+          "t_arr_true": 3310.0,
+          "t_arr_pred": 4915.0,
+          "t_arr_rel_err": 0.48489425981873113
+        },
+        "DeepKoopman": {
+          "rmse_full": 18.987386950843735,
+          "rmse_slow": 3.850400487749082,
+          "t_arr_true": 3310.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "MasterCurve": {
+          "rmse_full": 1.7805287143522528,
+          "rmse_slow": 0.4646025706469586,
+          "t_arr_true": 3310.0,
+          "t_arr_pred": 2870.0,
+          "t_arr_rel_err": -0.13293051359516617
+        },
+        "ODE-B": {
+          "rmse_full": 4.26242754405384,
+          "rmse_slow": 0.6081210085558051,
+          "t_arr_true": 3310.0,
+          "t_arr_pred": 5750.0,
+          "t_arr_rel_err": 0.7371601208459214
+        },
+        "fitted_tau_a": [
+          2854.200236546289,
+          0.3562211140955964
+        ]
+      },
+      "0.25": {
+        "HDMD-prefix": {
+          "rmse_full": 7.640718578098745,
+          "rmse_slow": 0.45583243060972645,
+          "t_arr_true": 3310.0,
+          "t_arr_pred": 10175.0,
+          "t_arr_rel_err": 2.0740181268882174
+        },
+        "DeepKoopman": {
+          "rmse_full": 19.14447942939025,
+          "rmse_slow": 3.79524830560498,
+          "t_arr_true": 3310.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "MasterCurve": {
+          "rmse_full": 0.8562747648878838,
+          "rmse_slow": 0.3340957569935987,
+          "t_arr_true": 3310.0,
+          "t_arr_pred": 3190.0,
+          "t_arr_rel_err": -0.03625377643504532
+        },
+        "ODE-B": {
+          "rmse_full": 4.638330474760801,
+          "rmse_slow": 0.7067192606939074,
+          "t_arr_true": 3310.0,
+          "t_arr_pred": 6130.0,
+          "t_arr_rel_err": 0.851963746223565
+        },
+        "fitted_tau_a": [
+          3175.685202317052,
+          0.3343210841136457
+        ]
+      },
+      "0.5": {
+        "HDMD-prefix": {
+          "rmse_full": 3.045108451228836,
+          "rmse_slow": 0.8219505790784231,
+          "t_arr_true": 3310.0,
+          "t_arr_pred": 4560.0,
+          "t_arr_rel_err": 0.3776435045317221
+        },
+        "DeepKoopman": {
+          "rmse_full": 19.3567897439639,
+          "rmse_slow": 1.5194842026310353,
+          "t_arr_true": 3310.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "MasterCurve": {
+          "rmse_full": 1.3311928722050916,
+          "rmse_slow": 0.43789880030215333,
+          "t_arr_true": 3310.0,
+          "t_arr_pred": 3055.0,
+          "t_arr_rel_err": -0.0770392749244713
+        },
+        "ODE-B": {
+          "rmse_full": 3.1867680506509655,
+          "rmse_slow": 0.6757161300661583,
+          "t_arr_true": 3310.0,
+          "t_arr_pred": 4650.0,
+          "t_arr_rel_err": 0.40483383685800606
+        },
+        "fitted_tau_a": [
+          3042.95999150117,
+          0.3488010001310651
+        ]
+      }
+    },
+    "1.35": {
+      "0.1": {
+        "HDMD-prefix": {
+          "rmse_full": 5.284118787142121,
+          "rmse_slow": 2.425745799280898,
+          "t_arr_true": 5285.0,
+          "t_arr_pred": 1680.0,
+          "t_arr_rel_err": -0.6821192052980133
+        },
+        "DeepKoopman": {
+          "rmse_full": 18.36331191807634,
+          "rmse_slow": 4.26227818451967,
+          "t_arr_true": 5285.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "MasterCurve": {
+          "rmse_full": 2.0815581620139745,
+          "rmse_slow": 0.4990410326041244,
+          "t_arr_true": 5285.0,
+          "t_arr_pred": 4680.0,
+          "t_arr_rel_err": -0.11447492904446546
+        },
+        "ODE-B": {
+          "rmse_full": 4.941692012095918,
+          "rmse_slow": 0.9329581464156543,
+          "t_arr_true": 5285.0,
+          "t_arr_pred": 8495.0,
+          "t_arr_rel_err": 0.6073793755912961
+        },
+        "fitted_tau_a": [
+          4663.460178269682,
+          0.4856874881243028
+        ]
+      },
+      "0.25": {
+        "HDMD-prefix": {
+          "rmse_full": 4.356562156181301,
+          "rmse_slow": 0.41212297052694064,
+          "t_arr_true": 5285.0,
+          "t_arr_pred": 7825.0,
+          "t_arr_rel_err": 0.4806054872280038
+        },
+        "DeepKoopman": {
+          "rmse_full": 18.605104884710833,
+          "rmse_slow": 4.211598056986149,
+          "t_arr_true": 5285.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "MasterCurve": {
+          "rmse_full": 2.4284832772400433,
+          "rmse_slow": 0.5121944360179872,
+          "t_arr_true": 5285.0,
+          "t_arr_pred": 4485.0,
+          "t_arr_rel_err": -0.15137180700094607
+        },
+        "ODE-B": {
+          "rmse_full": 4.406816655946548,
+          "rmse_slow": 0.944808320852923,
+          "t_arr_true": 5285.0,
+          "t_arr_pred": 7800.0,
+          "t_arr_rel_err": 0.47587511825922424
+        },
+        "fitted_tau_a": [
+          4468.554608019604,
+          0.500076573524636
+        ]
+      },
+      "0.5": {
+        "HDMD-prefix": {
+          "rmse_full": 4.773767005982655,
+          "rmse_slow": 0.4653156057256795,
+          "t_arr_true": 5285.0,
+          "t_arr_pred": 8200.0,
+          "t_arr_rel_err": 0.5515610217596972
+        },
+        "DeepKoopman": {
+          "rmse_full": 3.221408488637481,
+          "rmse_slow": 1.3678556112933327,
+          "t_arr_true": 5285.0,
+          "t_arr_pred": 3770.0,
+          "t_arr_rel_err": -0.28666035950804164
+        },
+        "MasterCurve": {
+          "rmse_full": 2.995400582562231,
+          "rmse_slow": 0.556534210112055,
+          "t_arr_true": 5285.0,
+          "t_arr_pred": 4120.0,
+          "t_arr_rel_err": -0.22043519394512773
+        },
+        "ODE-B": {
+          "rmse_full": 1.6716597588060251,
+          "rmse_slow": 0.7113551027445454,
+          "t_arr_true": 5285.0,
+          "t_arr_pred": 5675.0,
+          "t_arr_rel_err": 0.07379375591296121
+        },
+        "fitted_tau_a": [
+          4102.84078027432,
+          0.5390586797909779
+        ]
+      }
+    },
+    "1.4": {
+      "0.1": {
+        "HDMD-prefix": {
+          "rmse_full": 11.285485490395878,
+          "rmse_slow": 0.693524666506091,
+          "t_arr_true": 6285.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "DeepKoopman": {
+          "rmse_full": 18.03326540030393,
+          "rmse_slow": 4.364905615852929,
+          "t_arr_true": 6285.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "MasterCurve": {
+          "rmse_full": 2.5877466477791766,
+          "rmse_slow": 0.3998026156780473,
+          "t_arr_true": 6285.0,
+          "t_arr_pred": 5315.0,
+          "t_arr_rel_err": -0.15433571996817821
+        },
+        "ODE-B": {
+          "rmse_full": 4.428346663167824,
+          "rmse_slow": 0.9115945427065318,
+          "t_arr_true": 6285.0,
+          "t_arr_pred": 8880.0,
+          "t_arr_rel_err": 0.4128878281622912
+        },
+        "fitted_tau_a": [
+          5300.683599243403,
+          0.323239577415108
+        ]
+      },
+      "0.25": {
+        "HDMD-prefix": {
+          "rmse_full": 5.21117408950465,
+          "rmse_slow": 0.3398259534655323,
+          "t_arr_true": 6285.0,
+          "t_arr_pred": 9885.0,
+          "t_arr_rel_err": 0.5727923627684964
+        },
+        "DeepKoopman": {
+          "rmse_full": 18.324904987836657,
+          "rmse_slow": 4.529439924534049,
+          "t_arr_true": 6285.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "MasterCurve": {
+          "rmse_full": 3.0699985186482226,
+          "rmse_slow": 0.3582497922942385,
+          "t_arr_true": 6285.0,
+          "t_arr_pred": 4985.0,
+          "t_arr_rel_err": -0.20684168655529037
+        },
+        "ODE-B": {
+          "rmse_full": 3.9683659125621857,
+          "rmse_slow": 0.9299010369221499,
+          "t_arr_true": 6285.0,
+          "t_arr_pred": 8330.0,
+          "t_arr_rel_err": 0.32537788385043753
+        },
+        "fitted_tau_a": [
+          4971.87357871043,
+          0.3418098176852159
+        ]
+      },
+      "0.5": {
+        "HDMD-prefix": {
+          "rmse_full": 4.003844385000172,
+          "rmse_slow": 0.605873793311076,
+          "t_arr_true": 6285.0,
+          "t_arr_pred": 8250.0,
+          "t_arr_rel_err": 0.3126491646778043
+        },
+        "DeepKoopman": {
+          "rmse_full": 3.8146328350081213,
+          "rmse_slow": 1.2231041851288196,
+          "t_arr_true": 6285.0,
+          "t_arr_pred": 4310.0,
+          "t_arr_rel_err": -0.3142402545743834
+        },
+        "MasterCurve": {
+          "rmse_full": 3.423748278072591,
+          "rmse_slow": 0.526790470352181,
+          "t_arr_true": 6285.0,
+          "t_arr_pred": 4780.0,
+          "t_arr_rel_err": -0.2394590294351631
+        },
+        "ODE-B": {
+          "rmse_full": 0.4147341507979613,
+          "rmse_slow": 0.656491687422513,
+          "t_arr_true": 6285.0,
+          "t_arr_pred": 6320.0,
+          "t_arr_rel_err": 0.005568814638027049
+        },
+        "fitted_tau_a": [
+          4764.078118252696,
+          0.36998652520201253
+        ]
+      }
+    },
+    "1.45": {
+      "0.1": {
+        "HDMD-prefix": {
+          "rmse_full": 2.7534530659407346,
+          "rmse_slow": 2.1144977562058793,
+          "t_arr_true": 7560.0,
+          "t_arr_pred": 5555.0,
+          "t_arr_rel_err": -0.26521164021164023
+        },
+        "DeepKoopman": {
+          "rmse_full": 17.569279259276115,
+          "rmse_slow": 3.8528810123582917,
+          "t_arr_true": 7560.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "MasterCurve": {
+          "rmse_full": 3.050791517794989,
+          "rmse_slow": 0.22678498908223924,
+          "t_arr_true": 7560.0,
+          "t_arr_pred": 6300.0,
+          "t_arr_rel_err": -0.16666666666666666
+        },
+        "ODE-B": {
+          "rmse_full": 6.001729827111515,
+          "rmse_slow": 0.7086900267537619,
+          "t_arr_true": 7560.0,
+          "t_arr_pred": 12205.0,
+          "t_arr_rel_err": 0.6144179894179894
+        },
+        "fitted_tau_a": [
+          6287.770673958546,
+          0.6067133740806848
+        ]
+      },
+      "0.25": {
+        "HDMD-prefix": {
+          "rmse_full": 9.514181864198969,
+          "rmse_slow": 0.2691464304968964,
+          "t_arr_true": 7560.0,
+          "t_arr_pred": 19505.0,
+          "t_arr_rel_err": 1.5800264550264551
+        },
+        "DeepKoopman": {
+          "rmse_full": 17.89535048514716,
+          "rmse_slow": 3.4767397724937332,
+          "t_arr_true": 7560.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "MasterCurve": {
+          "rmse_full": 3.88448460455727,
+          "rmse_slow": 0.3055671589108259,
+          "t_arr_true": 7560.0,
+          "t_arr_pred": 5665.0,
+          "t_arr_rel_err": -0.25066137566137564
+        },
+        "ODE-B": {
+          "rmse_full": 4.625503039465322,
+          "rmse_slow": 0.6106131234166385,
+          "t_arr_true": 7560.0,
+          "t_arr_pred": 10290.0,
+          "t_arr_rel_err": 0.3611111111111111
+        },
+        "fitted_tau_a": [
+          5651.239150488558,
+          0.625211926426674
+        ]
+      },
+      "0.5": {
+        "HDMD-prefix": {
+          "rmse_full": 9.399427817611674,
+          "rmse_slow": 0.3264481647370445,
+          "t_arr_true": 7560.0,
+          "t_arr_pred": 17990.0,
+          "t_arr_rel_err": 1.3796296296296295
+        },
+        "DeepKoopman": {
+          "rmse_full": 1.0227548207464126,
+          "rmse_slow": 1.270518413174189,
+          "t_arr_true": 7560.0,
+          "t_arr_pred": 7155.0,
+          "t_arr_rel_err": -0.05357142857142857
+        },
+        "MasterCurve": {
+          "rmse_full": 3.7318477008319726,
+          "rmse_slow": 0.3585818263641705,
+          "t_arr_true": 7560.0,
+          "t_arr_pred": 5910.0,
+          "t_arr_rel_err": -0.21825396825396826
+        },
+        "ODE-B": {
+          "rmse_full": 2.720278042502566,
+          "rmse_slow": 0.4838143613042747,
+          "t_arr_true": 7560.0,
+          "t_arr_pred": 8500.0,
+          "t_arr_rel_err": 0.12433862433862433
+        },
+        "fitted_tau_a": [
+          5897.730037557227,
+          0.6121901701782659
+        ]
+      }
+    },
+    "1.5": {
+      "0.1": {
+        "HDMD-prefix": {
+          "rmse_full": 13.115561258884254,
+          "rmse_slow": 0.5002174981309953,
+          "t_arr_true": 7640.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "DeepKoopman": {
+          "rmse_full": 17.538154447762384,
+          "rmse_slow": 3.784111461362433,
+          "t_arr_true": 7640.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "MasterCurve": {
+          "rmse_full": 1.0568720979705921,
+          "rmse_slow": 0.2629826490407613,
+          "t_arr_true": 7640.0,
+          "t_arr_pred": 7475.0,
+          "t_arr_rel_err": -0.021596858638743454
+        },
+        "ODE-B": {
+          "rmse_full": 6.219740129795003,
+          "rmse_slow": 0.5520622806068203,
+          "t_arr_true": 7640.0,
+          "t_arr_pred": 12560.0,
+          "t_arr_rel_err": 0.643979057591623
+        },
+        "fitted_tau_a": [
+          7458.671944489635,
+          0.6317421214899633
+        ]
+      },
+      "0.25": {
+        "HDMD-prefix": {
+          "rmse_full": 13.651466400273632,
+          "rmse_slow": 0.67601407292541,
+          "t_arr_true": 7640.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "DeepKoopman": {
+          "rmse_full": 17.890032296652144,
+          "rmse_slow": 3.936747104875253,
+          "t_arr_true": 7640.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "MasterCurve": {
+          "rmse_full": 0.12397446751285252,
+          "rmse_slow": 0.23037393062930187,
+          "t_arr_true": 7640.0,
+          "t_arr_pred": 7635.0,
+          "t_arr_rel_err": -0.0006544502617801048
+        },
+        "ODE-B": {
+          "rmse_full": 6.891819719034984,
+          "rmse_slow": 0.6553263749048729,
+          "t_arr_true": 7640.0,
+          "t_arr_pred": 13390.0,
+          "t_arr_rel_err": 0.7526178010471204
+        },
+        "fitted_tau_a": [
+          7619.598847985166,
+          0.6298634702380851
+        ]
+      },
+      "0.5": {
+        "HDMD-prefix": {
+          "rmse_full": 11.455883062658833,
+          "rmse_slow": 0.4409011000939157,
+          "t_arr_true": 7640.0,
+          "t_arr_pred": 29325.0,
+          "t_arr_rel_err": 2.8383507853403143
+        },
+        "DeepKoopman": {
+          "rmse_full": 18.513186857205266,
+          "rmse_slow": 3.914147971894917,
+          "t_arr_true": 7640.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "MasterCurve": {
+          "rmse_full": 1.1267043478339966,
+          "rmse_slow": 0.41872073512401753,
+          "t_arr_true": 7640.0,
+          "t_arr_pred": 7800.0,
+          "t_arr_rel_err": 0.020942408376963352
+        },
+        "ODE-B": {
+          "rmse_full": 5.828234678317977,
+          "rmse_slow": 0.6806755890454418,
+          "t_arr_true": 7640.0,
+          "t_arr_pred": 11535.0,
+          "t_arr_rel_err": 0.5098167539267016
+        },
+        "fitted_tau_a": [
+          7783.997880093055,
+          0.6211004371202813
+        ]
+      }
+    },
+    "1.55": {
+      "0.1": {
+        "HDMD-prefix": {
+          "rmse_full": 13.667600521856206,
+          "rmse_slow": 1.1427867189211223,
+          "t_arr_true": 11085.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "DeepKoopman": {
+          "rmse_full": 14.704530100310258,
+          "rmse_slow": 3.8242136173596464,
+          "t_arr_true": 11085.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "MasterCurve": {
+          "rmse_full": 4.220136106473513,
+          "rmse_slow": 0.31972408205517727,
+          "t_arr_true": 11085.0,
+          "t_arr_pred": 8865.0,
+          "t_arr_rel_err": -0.20027063599458728
+        },
+        "ODE-B": {
+          "rmse_full": 7.2801043795953975,
+          "rmse_slow": 0.5265286448969057,
+          "t_arr_true": 11085.0,
+          "t_arr_pred": 17755.0,
+          "t_arr_rel_err": 0.6017140279657195
+        },
+        "fitted_tau_a": [
+          8847.617074509668,
+          0.7392128956577124
+        ]
+      },
+      "0.25": {
+        "HDMD-prefix": {
+          "rmse_full": 13.511535985427273,
+          "rmse_slow": 0.8959234472565581,
+          "t_arr_true": 11085.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "DeepKoopman": {
+          "rmse_full": 15.756430587936434,
+          "rmse_slow": 4.008734836573659,
+          "t_arr_true": 11085.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "MasterCurve": {
+          "rmse_full": 2.8434679992713128,
+          "rmse_slow": 0.21334246820791058,
+          "t_arr_true": 11085.0,
+          "t_arr_pred": 10070.0,
+          "t_arr_rel_err": -0.09156517816869644
+        },
+        "ODE-B": {
+          "rmse_full": 8.3950951698518,
+          "rmse_slow": 0.6470601513568723,
+          "t_arr_true": 11085.0,
+          "t_arr_pred": 19335.0,
+          "t_arr_rel_err": 0.7442489851150202
+        },
+        "fitted_tau_a": [
+          10056.571070933916,
+          0.7174323148253845
+        ]
+      },
+      "0.5": {
+        "HDMD-prefix": {
+          "rmse_full": 9.968136107595944,
+          "rmse_slow": 0.3506229298147874,
+          "t_arr_true": 11085.0,
+          "t_arr_pred": 23530.0,
+          "t_arr_rel_err": 1.1226883175462337
+        },
+        "DeepKoopman": {
+          "rmse_full": 7.2347954501504725,
+          "rmse_slow": 1.6140829035192048,
+          "t_arr_true": 11085.0,
+          "t_arr_pred": 6370.0,
+          "t_arr_rel_err": -0.42534957149300856
+        },
+        "MasterCurve": {
+          "rmse_full": 3.6302486065991144,
+          "rmse_slow": 0.31138829702125614,
+          "t_arr_true": 11085.0,
+          "t_arr_pred": 9650.0,
+          "t_arr_rel_err": -0.12945421741091565
+        },
+        "ODE-B": {
+          "rmse_full": 5.975279054698725,
+          "rmse_slow": 0.5625088631954676,
+          "t_arr_true": 11085.0,
+          "t_arr_pred": 14970.0,
+          "t_arr_rel_err": 0.35047361299052776
+        },
+        "fitted_tau_a": [
+          9636.26476522681,
+          0.7321131183865971
+        ]
+      }
+    },
+    "1.6": {
+      "0.1": {
+        "HDMD-prefix": {
+          "rmse_full": 11.9209382607276,
+          "rmse_slow": 1.5445315824072543,
+          "t_arr_true": 16690.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "DeepKoopman": {
+          "rmse_full": 13.857051425698549,
+          "rmse_slow": 3.84508589755493,
+          "t_arr_true": 16690.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "MasterCurve": {
+          "rmse_full": 6.608571823387398,
+          "rmse_slow": 0.44748326718138753,
+          "t_arr_true": 16690.0,
+          "t_arr_pred": 11445.0,
+          "t_arr_rel_err": -0.31426003594967045
+        },
+        "ODE-B": {
+          "rmse_full": 7.90219946004889,
+          "rmse_slow": 0.48637586439257213,
+          "t_arr_true": 16690.0,
+          "t_arr_pred": 24445.0,
+          "t_arr_rel_err": 0.4646494907130018
+        },
+        "fitted_tau_a": [
+          11430.718672954112,
+          0.7763384033792377
+        ]
+      },
+      "0.25": {
+        "HDMD-prefix": {
+          "rmse_full": 11.350317101042872,
+          "rmse_slow": 0.7308661636282273,
+          "t_arr_true": 16690.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "DeepKoopman": {
+          "rmse_full": 14.49992628846192,
+          "rmse_slow": 4.026587710658675,
+          "t_arr_true": 16690.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "MasterCurve": {
+          "rmse_full": 5.492618362880105,
+          "rmse_slow": 0.31917086513794407,
+          "t_arr_true": 16690.0,
+          "t_arr_pred": 13290.0,
+          "t_arr_rel_err": -0.20371479928100658
+        },
+        "ODE-B": {
+          "rmse_full": 8.866567095636157,
+          "rmse_slow": 0.5707464643851959,
+          "t_arr_true": 16690.0,
+          "t_arr_pred": 25510.0,
+          "t_arr_rel_err": 0.5284601557819053
+        },
+        "fitted_tau_a": [
+          13272.958816130867,
+          0.7524395298688908
+        ]
+      },
+      "0.5": {
+        "HDMD-prefix": {
+          "rmse_full": 11.82532113448001,
+          "rmse_slow": 0.5813245031280059,
+          "t_arr_true": 16690.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "DeepKoopman": {
+          "rmse_full": 15.77903759057625,
+          "rmse_slow": 4.1479307720542415,
+          "t_arr_true": 16690.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "MasterCurve": {
+          "rmse_full": 4.428622347926668,
+          "rmse_slow": 0.29153641125041285,
+          "t_arr_true": 16690.0,
+          "t_arr_pred": 14785.0,
+          "t_arr_rel_err": -0.11414020371479928
+        },
+        "ODE-B": {
+          "rmse_full": 7.756491177475712,
+          "rmse_slow": 0.5741522767134903,
+          "t_arr_true": 16690.0,
+          "t_arr_pred": 22450.0,
+          "t_arr_rel_err": 0.3451168364289994
+        },
+        "fitted_tau_a": [
+          14767.968400967784,
+          0.7082609349079909
+        ]
+      }
+    },
+    "1.65": {
+      "0.1": {
+        "HDMD-prefix": {
+          "rmse_full": 8.282587595735407,
+          "rmse_slow": 1.4287993999552995,
+          "t_arr_true": 23630.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "DeepKoopman": {
+          "rmse_full": 9.843130285913146,
+          "rmse_slow": 3.645509437794683,
+          "t_arr_true": 23630.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "MasterCurve": {
+          "rmse_full": 7.333584832600256,
+          "rmse_slow": 0.4780008204586968,
+          "t_arr_true": 23630.0,
+          "t_arr_pred": 17535.0,
+          "t_arr_rel_err": -0.25793482860770206
+        },
+        "ODE-B": {
+          "rmse_full": 7.153360906189145,
+          "rmse_slow": 0.337758607300607,
+          "t_arr_true": 23630.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "fitted_tau_a": [
+          17518.042133057297,
+          0.7360214365894936
+        ]
+      },
+      "0.25": {
+        "HDMD-prefix": {
+          "rmse_full": 8.495621184562141,
+          "rmse_slow": 1.0402407774179208,
+          "t_arr_true": 23630.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "DeepKoopman": {
+          "rmse_full": 10.508897145235457,
+          "rmse_slow": 3.8193526689076136,
+          "t_arr_true": 23630.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "MasterCurve": {
+          "rmse_full": 2.082495468082045,
+          "rmse_slow": 0.1608417527953515,
+          "t_arr_true": 23630.0,
+          "t_arr_pred": 23135.0,
+          "t_arr_rel_err": -0.020947947524333474
+        },
+        "ODE-B": {
+          "rmse_full": 7.876558949920138,
+          "rmse_slow": 0.5116048135821843,
+          "t_arr_true": 23630.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "fitted_tau_a": [
+          23120.82817605161,
+          0.6916985943708738
+        ]
+      },
+      "0.5": {
+        "HDMD-prefix": {
+          "rmse_full": 8.891231099617181,
+          "rmse_slow": 0.4081961374334576,
+          "t_arr_true": 23630.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "DeepKoopman": {
+          "rmse_full": 11.985962175803627,
+          "rmse_slow": 4.048530509018222,
+          "t_arr_true": 23630.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "MasterCurve": {
+          "rmse_full": 0.1901677112213794,
+          "rmse_slow": 0.2020323562259416,
+          "t_arr_true": 23630.0,
+          "t_arr_pred": 23635.0,
+          "t_arr_rel_err": 0.00021159542953872197
+        },
+        "ODE-B": {
+          "rmse_full": 8.969789567409768,
+          "rmse_slow": 0.5253570872284586,
+          "t_arr_true": 23630.0,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": Infinity
+        },
+        "fitted_tau_a": [
+          23619.67881760222,
+          0.6888800842044854
+        ]
+      }
+    },
+    "1.8": {
+      "0.1": {
+        "HDMD-prefix": {
+          "rmse_full": 0.34311386225740265,
+          "rmse_slow": 0.34311386225740265,
+          "t_arr_true": Infinity,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": 0.0
+        },
+        "DeepKoopman": {
+          "rmse_full": 1.7104389270642564,
+          "rmse_slow": 1.7104389270642564,
+          "t_arr_true": Infinity,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": 0.0
+        },
+        "MasterCurve": {
+          "rmse_full": 0.429008992840878,
+          "rmse_slow": 0.429008992840878,
+          "t_arr_true": Infinity,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": 0.0
+        },
+        "ODE-B": {
+          "rmse_full": 0.36988948557252854,
+          "rmse_slow": 0.36988948557252854,
+          "t_arr_true": Infinity,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": 0.0
+        },
+        "fitted_tau_a": [
+          61723.572676835334,
+          0.8213973334083456
+        ]
+      },
+      "0.25": {
+        "HDMD-prefix": {
+          "rmse_full": 0.29151498547861754,
+          "rmse_slow": 0.29151498547861754,
+          "t_arr_true": Infinity,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": 0.0
+        },
+        "DeepKoopman": {
+          "rmse_full": 1.659607336151065,
+          "rmse_slow": 1.659607336151065,
+          "t_arr_true": Infinity,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": 0.0
+        },
+        "MasterCurve": {
+          "rmse_full": 0.0880346578414747,
+          "rmse_slow": 0.0880346578414747,
+          "t_arr_true": Infinity,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": 0.0
+        },
+        "ODE-B": {
+          "rmse_full": 0.09362048719084526,
+          "rmse_slow": 0.09362048719084526,
+          "t_arr_true": Infinity,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": 0.0
+        },
+        "fitted_tau_a": [
+          117103.29125570721,
+          0.7836100445200251
+        ]
+      },
+      "0.5": {
+        "HDMD-prefix": {
+          "rmse_full": 0.18364943977990977,
+          "rmse_slow": 0.18364943977990977,
+          "t_arr_true": Infinity,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": 0.0
+        },
+        "DeepKoopman": {
+          "rmse_full": 1.5722184085633926,
+          "rmse_slow": 1.5722184085633926,
+          "t_arr_true": Infinity,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": 0.0
+        },
+        "MasterCurve": {
+          "rmse_full": 0.029480239839277066,
+          "rmse_slow": 0.029480239839277066,
+          "t_arr_true": Infinity,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": 0.0
+        },
+        "ODE-B": {
+          "rmse_full": 0.01778097334904535,
+          "rmse_slow": 0.01778097334904535,
+          "t_arr_true": Infinity,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": 0.0
+        },
+        "fitted_tau_a": [
+          154556.37424596195,
+          0.761444041665089
+        ]
+      }
+    },
+    "2.0": {
+      "0.1": {
+        "HDMD-prefix": {
+          "rmse_full": 0.02002790628973973,
+          "rmse_slow": 0.02002790628973973,
+          "t_arr_true": Infinity,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": 0.0
+        },
+        "DeepKoopman": {
+          "rmse_full": 1.656759399988521,
+          "rmse_slow": 1.656759399988521,
+          "t_arr_true": Infinity,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": 0.0
+        },
+        "MasterCurve": {
+          "rmse_full": 0.4458331269811804,
+          "rmse_slow": 0.4458331269811804,
+          "t_arr_true": Infinity,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": 0.0
+        },
+        "ODE-B": {
+          "rmse_full": 0.28970397522295427,
+          "rmse_slow": 0.28970397522295427,
+          "t_arr_true": Infinity,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": 0.0
+        },
+        "fitted_tau_a": [
+          103025.68061094153,
+          1.070752165383671
+        ]
+      },
+      "0.25": {
+        "HDMD-prefix": {
+          "rmse_full": 0.019649482719778892,
+          "rmse_slow": 0.019649482719778892,
+          "t_arr_true": Infinity,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": 0.0
+        },
+        "DeepKoopman": {
+          "rmse_full": 1.661008573733809,
+          "rmse_slow": 1.661008573733809,
+          "t_arr_true": Infinity,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": 0.0
+        },
+        "MasterCurve": {
+          "rmse_full": 0.13798377256753638,
+          "rmse_slow": 0.13798377256753638,
+          "t_arr_true": Infinity,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": 0.0
+        },
+        "ODE-B": {
+          "rmse_full": 0.12023889128257377,
+          "rmse_slow": 0.12023889128257377,
+          "t_arr_true": Infinity,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": 0.0
+        },
+        "fitted_tau_a": [
+          306017.43420539965,
+          1.0569891614136495
+        ]
+      },
+      "0.5": {
+        "HDMD-prefix": {
+          "rmse_full": 0.017372649974365682,
+          "rmse_slow": 0.017372649974365682,
+          "t_arr_true": Infinity,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": 0.0
+        },
+        "DeepKoopman": {
+          "rmse_full": 1.6750882589736273,
+          "rmse_slow": 1.6750882589736273,
+          "t_arr_true": Infinity,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": 0.0
+        },
+        "MasterCurve": {
+          "rmse_full": 0.0670748325786685,
+          "rmse_slow": 0.0670748325786685,
+          "t_arr_true": Infinity,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": 0.0
+        },
+        "ODE-B": {
+          "rmse_full": 0.11593877970139817,
+          "rmse_slow": 0.11593877970139817,
+          "t_arr_true": Infinity,
+          "t_arr_pred": Infinity,
+          "t_arr_rel_err": 0.0
+        },
+        "fitted_tau_a": [
+          499999.9999999997,
+          1.054852914466053
+        ]
+      }
+    }
+  },
+  "original_model": {
+    "0.5": {
+      "teacher_forced_rmse": 0.14107449819268392,
+      "free_running_rmse": 8.767632655050196
+    },
+    "1.25": {
+      "teacher_forced_rmse": 0.07568176728658314,
+      "free_running_rmse": 3.5031579934360972
+    },
+    "1.6": {
+      "teacher_forced_rmse": 0.01894810234631043,
+      "free_running_rmse": 5.7346511086791345
+    },
+    "1.8": {
+      "teacher_forced_rmse": 0.020217196875214026,
+      "free_running_rmse": 11.749293728005936
+    }
+  },
+  "summary": {
+    "a": {
+      "HDMD-param": {
+        "median_rmse_full": 3.60458833849511,
+        "median_rmse_slow": 4.397298670183144,
+        "median_abs_t_arr_err": 0.6714399363564041,
+        "n_arrest_missed": 1,
+        "n_false_arrest": 0
+      },
+      "DeepKoopman": {
+        "median_rmse_full": 17.38237311011809,
+        "median_rmse_slow": 3.8381409749484576,
+        "median_abs_t_arr_err": 1.0,
+        "n_arrest_missed": 11,
+        "n_false_arrest": 0
+      },
+      "MasterCurve": {
+        "median_rmse_full": 2.3954560274252765,
+        "median_rmse_slow": 0.3125523393117262,
+        "median_abs_t_arr_err": 0.11706349206349206,
+        "n_arrest_missed": 0,
+        "n_false_arrest": 0
+      },
+      "ODE-B": {
+        "median_rmse_full": 2.62222447432182,
+        "median_rmse_slow": 0.45191412393242064,
+        "median_abs_t_arr_err": 0.11234272019173158,
+        "n_arrest_missed": 0,
+        "n_false_arrest": 0
+      }
+    },
+    "b": {
+      "0.1": {
+        "HDMD-prefix": {
+          "median_rmse_full": 5.284118787142121,
+          "median_rmse_slow": 1.4287993999552995,
+          "median_abs_t_arr_err": 0.7509363295880149,
+          "n_arrest_missed": 6
+        },
+        "DeepKoopman": {
+          "median_rmse_full": 17.569279259276115,
+          "median_rmse_slow": 3.850400487749082,
+          "median_abs_t_arr_err": 1.0,
+          "n_arrest_missed": 11
+        },
+        "MasterCurve": {
+          "median_rmse_full": 2.5877466477791766,
+          "median_rmse_slow": 0.4458331269811804,
+          "median_abs_t_arr_err": 0.16666666666666666,
+          "n_arrest_missed": 0
+        },
+        "ODE-B": {
+          "median_rmse_full": 4.428346663167824,
+          "median_rmse_slow": 0.6081210085558051,
+          "median_abs_t_arr_err": 0.48787878787878786,
+          "n_arrest_missed": 1
+        }
+      },
+      "0.25": {
+        "HDMD-prefix": {
+          "median_rmse_full": 8.495621184562141,
+          "median_rmse_slow": 0.46021914042015066,
+          "median_abs_t_arr_err": 1.0,
+          "n_arrest_missed": 6
+        },
+        "DeepKoopman": {
+          "median_rmse_full": 17.890032296652144,
+          "median_rmse_slow": 3.8193526689076136,
+          "median_abs_t_arr_err": 1.0,
+          "n_arrest_missed": 10
+        },
+        "MasterCurve": {
+          "median_rmse_full": 2.4284832772400433,
+          "median_rmse_slow": 0.31917086513794407,
+          "median_abs_t_arr_err": 0.13636363636363635,
+          "n_arrest_missed": 0
+        },
+        "ODE-B": {
+          "median_rmse_full": 4.406816655946548,
+          "median_rmse_slow": 0.6470601513568723,
+          "median_abs_t_arr_err": 0.47587511825922424,
+          "n_arrest_missed": 1
+        }
+      },
+      "0.5": {
+        "HDMD-prefix": {
+          "median_rmse_full": 8.891231099617181,
+          "median_rmse_slow": 0.4653156057256795,
+          "median_abs_t_arr_err": 1.0,
+          "n_arrest_missed": 3
+        },
+        "DeepKoopman": {
+          "median_rmse_full": 3.8146328350081213,
+          "median_rmse_slow": 1.5722184085633926,
+          "median_abs_t_arr_err": 0.3142402545743834,
+          "n_arrest_missed": 4
+        },
+        "MasterCurve": {
+          "median_rmse_full": 1.8944658896939799,
+          "median_rmse_slow": 0.41872073512401753,
+          "median_abs_t_arr_err": 0.11414020371479928,
+          "n_arrest_missed": 0
+        },
+        "ODE-B": {
+          "median_rmse_full": 2.5913611425978336,
+          "median_rmse_slow": 0.5741522767134903,
+          "median_abs_t_arr_err": 0.2674772036474164,
+          "n_arrest_missed": 1
+        }
+      }
+    }
+  },
+  "settings": {
+    "sub": 10,
+    "n_init": 20,
+    "arrest_y": -10.0,
+    "prefixes": [
+      0.1,
+      0.25,
+      0.5
+    ],
+    "quick": false
+  }
+}

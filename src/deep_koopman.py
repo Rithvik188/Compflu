@@ -57,6 +57,32 @@ class ForceConditionedKoopmanAE(nn.Module):
         
         return x_pred, x_next_pred, z, z_next
 
+    def koopman_matrix(self, f):
+        return self.koopman_generator(f).view(-1, self.latent_dim, self.latent_dim)
+
+    @torch.no_grad()
+    def rollout(self, x0, f, n_steps, mode='latent'):
+        """
+        Free-running prediction from ONE initial window x0 (no ground truth used after it).
+        mode='latent'  : z_{k+1} = K(f) z_k, value_k = decoder(z_k)[-1]   (pure Koopman)
+        mode='reencode': decode, append newest value to the window, re-encode (autoregressive)
+        x0: (input_dim,) tensor, f: float. Returns a numpy array of n_steps predicted values.
+        """
+        dev = next(self.parameters()).device
+        x = x0.reshape(1, -1).to(dev)
+        ft = torch.tensor([[f]], dtype=torch.float32, device=dev)
+        K = self.koopman_matrix(ft)
+        z = self.encoder(x)
+        out = []
+        for _ in range(n_steps):
+            z = torch.bmm(K, z.unsqueeze(2)).squeeze(2)
+            new = self.decoder(z)[0, -1]
+            out.append(new.item())
+            if mode == 'reencode':
+                x = torch.cat([x[:, 1:], new.view(1, 1)], dim=1)
+                z = self.encoder(x)
+        return torch.tensor(out).numpy()
+
 if __name__ == "__main__":
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print(f"Force-Conditioned Deep Koopman Autoencoder targeting device: {device}")
