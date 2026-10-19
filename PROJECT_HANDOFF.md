@@ -6,7 +6,10 @@
 
 This project studies a **2D active glass** system — a dense assembly of self-propelled particles that are driven persistently out of thermodynamic equilibrium by an active force $f$. The central physics question is: *what happens to the kinetic energy of this system as the active force approaches a critical threshold?*
 
-The system undergoes a **jamming transition** near a critical active force $f_c \approx 1.65$. Below this value, the system's kinetic energy decays to zero (the system "arrests" into a jammed state). Above it, the system flows indefinitely as an active fluid. The project uses data-driven techniques — Hankel Dynamic Mode Decomposition (HDMD) and a Force-Conditioned Deep Koopman Autoencoder — to characterize this transition and predict kinetic energy trajectories.
+The system undergoes a **jamming transition** at a critical active force $f_c$. Below this value, the system's kinetic energy decays to zero (the system "arrests" into a jammed state). Above it, the system flows indefinitely as an active fluid.
+
+> [!IMPORTANT]
+> **Updated (Oct 2026):** the original estimate $f_c \approx 1.65$ was a finite-simulation-time artifact. f = 1.65 arrests (t ≈ 23 600) and f = 1.8 is still in the slow decay at the end of the run. Current estimate: **$f_c \approx 1.8$–$1.95$, $\gamma \approx 1.4$–$2.1$** (degenerate). Full results are in `docs/RESULTS.md`. The project uses data-driven techniques — Hankel Dynamic Mode Decomposition (HDMD) and a Force-Conditioned Deep Koopman Autoencoder — to characterize this transition and predict kinetic energy trajectories.
 
 ---
 
@@ -28,9 +31,10 @@ The system undergoes a **jamming transition** near a critical active force $f_c 
 ### Physical Regimes
 | Force Range | Behaviour |
 |---|---|
-| $f < 1.65$ | **Jammed / Glassy:** KE decays to zero over time. The closer $f$ is to 1.65, the longer it takes. |
-| $f \approx 1.65$ | **Critical Point:** Extremely slow, diverging relaxation. |
-| $f > 1.65$ | **Active Fluid:** KE reaches a non-zero steady state and stays there. |
+| $f \le 0.75$ | **Quench-like:** fast decay with oscillations; outside the master curve. |
+| $1.0 \le f \le 1.65$ | **Jammed / Glassy:** slow exponential decay of K, then an abrupt collapse at a force-independent rate (arrest). Arrest time grows from ~1 800 to ~23 600. |
+| $f = 1.8$ | **Near-critical:** still in the slow decay at t = 29 505 (τ_K ≈ 19 000); expected to arrest at t ~ 10⁵. |
+| $f = 2.0$ | **Active Fluid (nearly stationary):** KE ≈ 0.020, Gaussian fluctuations. |
 
 ### Key Physical Discovery: Critical Slowing Down
 As $f \to f_c$, the characteristic relaxation time $\tau$ diverges following a **power law**:
@@ -38,6 +42,9 @@ $$\tau \propto (f_c - f)^{-\gamma}$$
 Our regression on the HDMD-extracted relaxation times yields:
 $$\boxed{\gamma \approx 1.64 \pm 0.31, \quad R^2 \approx 0.70}$$
 This is notably lower than the standard Mode-Coupling Theory value of $\gamma \approx 2.3$–$2.6$ for passive 3D glasses, suggesting that active cage-breaking changes the universality class. **This is an exploratory observation, not a confirmed claim** — it motivates the next step of equation extraction.
+
+> [!WARNING]
+> **Superseded.** This fit assumed $f_c = 1.65$ and used HDMD on linear K. With $f_c$ fitted (above every force used) and several τ definitions, the robust result is $f_c \approx 1.8$–$1.95$ and $\gamma \approx 1.4$–$2.1$, with Arrhenius rejected and power law ≈ VFT. See `src/scaling_analysis.py` and `docs/RESULTS.md` §1.
 
 ---
 
@@ -62,14 +69,20 @@ C:\Users\rithv\OneDrive\Desktop\ML MODEL FOR ACTIVE GLASSY FLUIDS\
 ├── notebooks/                ← (empty, kept for future Jupyter exploration)
 │
 └── src/                      ← All Python source code
-    ├── data_loader.py
+    ├── data_loader.py        (+ preprocess / load_clean)
     ├── hdmd_core.py
     ├── hdmd_analysis.py
-    ├── deep_koopman.py
-    ├── train.py
+    ├── deep_koopman.py       (+ rollout())
+    ├── train.py              (+ train_rollout(): multi-step loss)
     ├── publication_plots.py
-    └── demo.py
+    ├── demo.py
+    ├── scaling_analysis.py   ← Q1: τ definitions, critical fits, master-curve collapse
+    ├── havok.py              ← HAVOK (own implementation, Lorenz + PyDMD validated)
+    ├── equation_discovery.py ← weak SINDy, master-curve ODE, Langevin, PySINDy cross-check
+    └── koopman_forecast.py   ← Q2: leave-one-force-out + prefix forecasting benchmark
 ```
+
+Run the new analysis in order (from the project root): `scaling_analysis.py` → `havok.py` → `equation_discovery.py` → `koopman_forecast.py` (the last takes ~1 h on the RTX 3060; `--quick` runs 4 forces). Results: `docs/RESULTS.md`.
 
 ---
 
@@ -266,7 +279,14 @@ The abstract (~195 words) along with keywords and references is saved at:
 
 ---
 
-## 8. Next Steps (Planned but Not Started)
+### Update (Oct 2026): what the new analysis found
+- **Teacher forcing:** `publication_plots.plot_global_master_trajectory()` feeds the true previous 100 values at every step, so `pub_master_trajectories.png` is not a forecast. Run freely, the original model is off by 0.6–8.7 decades (`docs/forecast_original_model.png`).
+- **Master curve exists:** log₁₀K = a(f) + G(t/τ(f)) for 1.0 ≤ f ≤ 1.8 (spread 1.81 → 0.030), with a force-independent final collapse rate of 0.40 decades/time.
+- **Governing equation:** τ(f)·dy/dt = g(y − a(f)) with g a cubic (weak SINDy), validated leave-one-force-out.
+- **HAVOK:** intermittent forcing in every arresting force, Gaussian for f ≥ 1.8; it switches on in the last ~20% of the slow stage.
+- Items A–C of §8 below are done (see `docs/RESULTS.md`).
+
+## 8. Next Steps (originally planned; A–C now done)
 
 ### A. Equation Discovery (SINDy-style)
 The idea is to extract the governing differential equation $\frac{dK}{dt} = \mathcal{F}(K, f)$ directly from data using sparse regression (Lasso) and SymPy for symbolic output. The hypothesis is that an activity-induced cage-breaking term ($+B \cdot f \cdot K^n$) will appear alongside the standard dissipation term ($-A \cdot K$), which would physically justify the anomalous $\gamma$.

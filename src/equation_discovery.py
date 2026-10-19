@@ -8,7 +8,7 @@ Models
      (library: monomials up to y^2 f^3), fitted on the slow stage of all forces.
   B  Master-curve ODE: the collapse  y = a(f) + G(t/tau(f))  implies the autonomous law
             tau(f) dy/dt = g(u),   u = y - a(f)
-     with ONE universal function g. g is found with weak SINDy (polynomial in u), and
+     with ONE function g shared by all forces. g is found with weak SINDy (polynomial in u), and
      tau(f), a(f) come from the scaling analysis -> one closed equation for all f.
   H  Handoff hypothesis  dK/dt = -A K + B f K^n   <=>   dy/dt = (-A + B f 10^{(n-1)y}) / ln10
      (scan n, fit A, B).
@@ -19,7 +19,7 @@ Models
      control input).
 
 Arrest: below the force-dependent level y_on(f) the slow law stops and K decays
-with the universal rate Gamma (decades/time) measured in scaling_analysis.py.
+with the force-independent rate Gamma (decades/time) measured in scaling_analysis.py.
 
 Weak SINDy (Messenger & Bortz 2021): multiply dy/dt = Theta(y) xi by smooth bump
 test functions phi_k(t) and integrate by parts:  -int phi_k' y dt = int phi_k Theta xi dt.
@@ -162,7 +162,7 @@ def rhs_A(xi, f):
 
 
 # ---------------------------------------------------------------------------
-# Model B: universal master-curve ODE  tau(f) dy/dt = g(y - a(f))
+# Model B: master-curve ODE  tau(f) dy/dt = g(y - a(f))
 # ---------------------------------------------------------------------------
 B_DEG = 3
 B_NAMES = ["1", "u", "u^2", "u^3"]
@@ -227,7 +227,7 @@ def fit_model_H(D, forces, ns=np.linspace(0.0, 3.0, 61)):
 # Integration with the arrest event
 # ---------------------------------------------------------------------------
 def integrate(rhs, y0, t_end, y_on, gamma_cliff, floor=-20.0):
-    """Slow law until y < y_on, then universal collapse dy/dt = -gamma_cliff."""
+    """Slow law until y < y_on, then the collapse dy/dt = -gamma_cliff."""
     ev = lambda t, y: y[0] - y_on
     ev.terminal, ev.direction = True, -1
     sol = solve_ivp(rhs, (T0, t_end), [y0], events=ev, max_step=5.0, rtol=1e-6, atol=1e-8,
@@ -358,7 +358,7 @@ def run():
     gamma_cliff = -S['cliff_rate']['mean']                       # decades / time
     arrested = [f for f in sorted(D) if f >= 1.0 and np.isfinite(D[f]['t_arr'])]
     forces = arrested + [1.8]
-    # collapse onset in master-curve units: u_on = y_on - a(f), universal (median over f)
+    # collapse onset in master-curve units: u_on = y_on - a(f), common to all forces (median)
     cl_all = closure(S, forces)
     y_on = {f: onset_level(D[f]) for f in arrested}
     u_on = float(np.median([y_on[f] - cl_all['a_of'](f) for f in arrested]))
@@ -366,7 +366,7 @@ def run():
     print(f"Universal collapse rate Gamma = {gamma_cliff:.3f} decades/time "
           f"(= {gamma_cliff * LN10:.3f} per time in ln K)")
     print("Collapse onset level y_on(f):", {f: round(v, 2) for f, v in y_on.items()},
-          f"-> universal u_on = y_on - a(f) = {u_on:.2f} (median)")
+          f"-> common u_on = y_on - a(f) = {u_on:.2f} (median over forces)")
 
     # ---- synthetic test ----
     syn = synthetic_check(D, forces)
@@ -384,7 +384,7 @@ def run():
     cl = closure(S, forces)
     xiB = fit_model_B(D, forces, cl['a_of'], cl['tau_of'])
     eqB = fmt_eq(xiB, B_NAMES, "du/ds")
-    print(f"\nModel B (universal):  tau(f) dy/dt = g(y - a(f)),  g: {eqB}")
+    print(f"\nModel B (one g for all forces):  tau(f) dy/dt = g(y - a(f)),  g: {eqB}")
     print(f"   closure: tau(f) = {cl['A']:.4g} ({cl['fc']:.3f} - f)^-{cl['gamma']:.2f},  "
           f"a(f) = {cl['a_lin'][0]:.3f} f + {cl['a_lin'][1]:.3f}")
     out['model_B'] = dict(g_equation=eqB, g_coefficients=dict(zip(B_NAMES, xiB.tolist())),
@@ -469,7 +469,7 @@ def plot_validation(D, forces, curves, val, path):
             a_.plot(tg, yg, '--', color=c, lw=1.4)
     ax[0].set(title='Model A (general weak SINDy), leave-one-force-out', xlabel='$t$', ylabel=r'$\log_{10}K$',
               xscale='log', ylim=(-21, -1))
-    ax[1].set(title=r'Model B (universal $\tau(f)\,\dot y = g(y-a(f))$), leave-one-force-out', xlabel='$t$',
+    ax[1].set(title=r'Model B ($\tau(f)\,\dot y = g(y-a(f))$), leave-one-force-out', xlabel='$t$',
               xscale='log')
     for a_ in ax:
         a_.grid(alpha=0.3)
@@ -516,7 +516,7 @@ def write_markdown(out, cl, path):
         "## Model A: general weak SINDy",
         f"`{out['model_A']['equation']}`",
         "",
-        "## Model B: universal master-curve ODE",
+        "## Model B: master-curve ODE (same g for every force in this dataset)",
         "$$\\tau(f)\\,\\frac{dy}{dt} = g\\big(y-a(f)\\big)$$",
         f"`g: {out['model_B']['g_equation']}`",
         "",
@@ -524,7 +524,7 @@ def write_markdown(out, cl, path):
         f"$a(f) = {cl['a_lin'][0]:.3f} f {cl['a_lin'][1]:+.3f}$.",
         "",
         f"Arrest: when $u = y - a(f) < u_{{on}} = {out['u_on']:.2f}$ the law switches to "
-        f"$dy/dt = -\\Gamma$, $\\Gamma = {out['gamma_cliff']:.3f}$ decades/time (universal).",
+        f"$dy/dt = -\\Gamma$, $\\Gamma = {out['gamma_cliff']:.3f}$ decades/time (force-independent in this dataset).",
         "",
         "## Model H: handoff hypothesis $dK/dt = -AK + BfK^n$",
         f"best $n = {out['model_H']['n']:.2f}$, $A = {out['model_H']['A']:.4g}$, $B = {out['model_H']['B']:.4g}$",

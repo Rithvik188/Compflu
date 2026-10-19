@@ -7,13 +7,13 @@ Variables: $y=\log_{10}K$, $f$ = active force, $u = y - a(f)$, $s = t/\tau(f)$.
 ## Model A: general weak SINDy
 `dy/dt = -0.01457·F^2 +0.003152·Y*F -0.01504·Y*F^2 -0.0005957·Y^2 +0.004556·Y^2*F +0.005778·Y^2*F^2`
 
-## Model B: universal master-curve ODE
+## Model B: master-curve ODE (same g for every force in this dataset)
 $$\tau(f)\,\frac{dy}{dt} = g\big(y-a(f)\big)$$
 `g: du/ds = +7.102·u +2.859·u^2 +0.3068·u^3`
 
 with $\tau(f) = 1433\,(1.935-f)^{-2.10}$ and $a(f) = 1.360 f -1.475$.
 
-Arrest: when $u = y - a(f) < u_{on} = -6.93$ the law switches to $dy/dt = -\Gamma$, $\Gamma = 0.397$ decades/time (universal).
+Arrest: when $u = y - a(f) < u_{on} = -6.93$ the law switches to $dy/dt = -\Gamma$, $\Gamma = 0.397$ decades/time (force-independent in this dataset).
 
 ## Model H: handoff hypothesis $dK/dt = -AK + BfK^n$
 best $n = 0.60$, $A = 0.001026$, $B = -8.325e-06$
