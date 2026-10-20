@@ -6,6 +6,7 @@ Median over forces. RMSE in decades of K (log10): 'full' = whole forecast incl. 
 
 | model | RMSE full | RMSE slow stage | median abs dt_arr | missed arrests | false arrests |
 |---|---|---|---|---|---|
+| NeighbourBaseline | 1.88 | 0.42 | 0.08 | 0 | 1 |
 | HDMD-param | 3.60 | 4.40 | 0.67 | 1 | 0 |
 | DeepKoopman | 17.38 | 3.84 | 1.00 | 11 | 0 |
 | MasterCurve | 2.40 | 0.31 | 0.12 | 0 | 0 |

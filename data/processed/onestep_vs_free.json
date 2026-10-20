@@ -1,0 +1,18 @@
+{
+  "0.5": {
+    "teacher_forced_rmse": 0.14107449819268392,
+    "free_running_rmse": 8.767632655050196
+  },
+  "1.25": {
+    "teacher_forced_rmse": 0.07568176728658314,
+    "free_running_rmse": 3.5031579934360972
+  },
+  "1.6": {
+    "teacher_forced_rmse": 0.01894810234631043,
+    "free_running_rmse": 5.7346511086791345
+  },
+  "1.8": {
+    "teacher_forced_rmse": 0.020217196875214026,
+    "free_running_rmse": 11.749293728005936
+  }
+}

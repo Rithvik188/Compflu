@@ -175,30 +175,33 @@ Models: **HDMD-param** (Hankel DMD, linear Koopman operator interpolated in f) /
 **MasterCurve** (a(f) + G(t/τ(f)): a slow Koopman mode whose eigenvalue −1/τ(f) follows the critical
 law, switched to the collapse mode at arrest); **ODE-B** (§3).
 
-**(a) Unseen force** (median over 13 forces; RMSE in decades of K)
+A non-Koopman **neighbour baseline** is included: copy the nearest training trajectory and stretch its
+time axis to an interpolated arrest time.
 
-| model | RMSE, slow stage | median abs. arrest-time error | arrests missed (of 11) |
-|---|---|---|---|
-| HDMD-param | 4.40 | 67 % | 1 |
-| DeepKoopman | 3.84 | 100 % | 11 |
-| **MasterCurve** | **0.31** | **12 %** | 0 |
-| **ODE-B** | 0.45 | **11 %** | 0 |
+**(a) Unseen force** (medians over the 11 arresting forces, 95 % bootstrap CI; slow-stage errors in
+decades of log₁₀K; a missed arrest counts as 100 %)
 
-**(b) Forecast from a prefix** (median abs. arrest-time error; missed arrests in brackets)
+| model | arrest-time error | within 25 % | missed arrests | false arrests (1.8, 2.0) | RMSE | MAE | R² |
+|---|---|---|---|---|---|---|---|
+| Neighbour baseline | 8 % [3, 24] | 10/11 | 0 | 1/2 | 0.36 | 0.16 | 0.89 |
+| HDMD-param | 67 % [59, 73] | 0/11 | 1 | 0/2 | 4.53 | 4.20 | < 0 |
+| DeepKoopman | 100 % | 0/11 | 11 | 0/2 | 3.86 | 3.58 | < 0 |
+| **MasterCurve** | **14 % [10, 18]** | 10/11 | 0 | 0/2 | **0.31** | 0.17 | 0.87 |
+| ODE-B | 17 % [9, 31] | 7/11 | 0 | 0/2 | 0.45 | 0.26 | 0.80 |
+
+**(b) Forecast from a prefix** (median arrest-time error, arresting forces; missed arrests in brackets)
 
 | model | 10 % given | 25 % given | 50 % given |
 |---|---|---|---|
-| HDMD-prefix (≈ HAVOK) | 75 % (6) | 100 % (6) | 100 % (3) |
-| DeepKoopman | 100 % (11) | 100 % (10) | 31 % (4) |
-| **MasterCurve** | **17 % (0)** | **14 % (0)** | **11 % (0)** |
-| ODE-B | 49 % (1) | 48 % (1) | 27 % (1) |
+| HDMD-prefix (≈ HAVOK) | 100 % (6) | 100 % (6) | 100 % (3) |
+| DeepKoopman | 100 % (11) | 100 % (10) | 41 % (4) |
+| **MasterCurve** | **20 % (0)** | **15 % (0)** | **13 % (0)** |
+| ODE-B | 60 % (1) | 53 % (1) | 31 % (1) |
 
-For the two non-arresting forces (1.8, 2.0) no model predicts a false arrest. MasterCurve and
-HDMD-param stay within 0.2–0.6 decades.
+**One-step-ahead versus free-running evaluation** of the one-step-trained autoencoder
+(`koopman_model.pth`, first 10 000 t.u., RMSE of log₁₀(K + 10⁻¹²)):
 
-**Original deep Koopman model** (`koopman_model.pth`, first 10 000 t.u.):
-
-| f | teacher-forced RMSE (old plot) | free-running RMSE |
+| f | one-step-ahead | free-running |
 |---|---|---|
 | 0.5 | 0.14 | 8.77 |
 | 1.25 | 0.08 | 3.50 |
@@ -208,13 +211,19 @@ HDMD-param stay within 0.2–0.6 decades.
 **Answer to Q2.**
 * *Plain* data-driven Koopman models (linear HDMD/HAVOK operators, a deep Koopman autoencoder)
   **cannot** predict an unknown KE trajectory over the needed horizon (thousands of steps). A
-  linear operator cannot produce the abrupt arrest. The neural model drifts in free rollout. The
-  apparent success of the original model was entirely due to teacher forcing.
+  linear operator cannot produce the abrupt arrest, and the neural model drifts in free rollout.
+  Accuracy in one-step-ahead evaluation does not carry over to free-running prediction.
 * A **Koopman model built on the scaling structure** (one slow mode with eigenvalue −1/τ(f), τ(f)
   from the critical law, plus the collapse mode) **does** predict unseen forces: slow-stage error
-  ≈ 0.3 decades and arrest time within ~12 % (worst cases −41 % and +67 %). It also forecasts from a
-  10 % prefix with ~17 % arrest-time error. These are single-run comparisons, so ~±25 % run-to-run
-  scatter of the true arrest time is not accounted for.
+  ≈ 0.3 decades, arrest time within 14 % (median), no missed or false arrests. From a 10 % prefix the
+  arrest-time error is ~20 %.
+* The time-stretched neighbour baseline is **at least as accurate for interior forces** (8 %). It is
+  itself a one-parameter collapse, so this supports the common-shape result. The critical law helps
+  only under extrapolation: f = 1.0 (10 % vs 47 %) and f = 1.8 (the baseline predicts a false arrest).
+* These are single-run comparisons, so ~±25 % run-to-run scatter of the true arrest time is not
+  accounted for.
+
+Full report with validation of every claim: `reports/Technical_Report.pdf`.
 
 ---
 

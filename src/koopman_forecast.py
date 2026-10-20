@@ -92,11 +92,37 @@ def metrics(t, y_true, y_pred, t_from=0.0):
     full = float(np.sqrt(np.nanmean((y_pred[m] - y_true[m]) ** 2)))
     ms = m & (t <= min(ta_t, ta_p))
     slow = float(np.sqrt(np.nanmean((y_pred[ms] - y_true[ms]) ** 2))) if ms.any() else np.nan
+    mae = float(np.nanmean(np.abs(y_pred[ms] - y_true[ms]))) if ms.any() else np.nan
+    ss_res = np.nansum((y_pred[ms] - y_true[ms]) ** 2)
+    ss_tot = np.nansum((y_true[ms] - np.nanmean(y_true[ms])) ** 2)
+    r2 = float(1 - ss_res / ss_tot) if ms.sum() > 2 and ss_tot > 0 else np.nan
     if np.isfinite(ta_t):
         rel = (ta_p - ta_t) / ta_t if np.isfinite(ta_p) else np.inf
     else:
         rel = 0.0 if not np.isfinite(ta_p) else -np.inf   # fluid: must not predict arrest
-    return dict(rmse_full=full, rmse_slow=slow, t_arr_true=ta_t, t_arr_pred=ta_p, t_arr_rel_err=float(rel))
+    return dict(rmse_full=full, rmse_slow=slow, mae_slow=mae, r2_slow=r2,
+                t_arr_true=ta_t, t_arr_pred=ta_p, t_arr_rel_err=float(rel))
+
+
+# ---------------------------------------------------------------------------
+# Baseline: nearest training force, time-stretched (no physics, no Koopman)
+# ---------------------------------------------------------------------------
+def neighbour_baseline(C, D, train, f, t):
+    """Copy the trajectory of the nearest training force and stretch its time axis by
+    the ratio of arrest times, where the unseen arrest time is obtained by linear
+    interpolation / extrapolation of log t_arr vs f over the arrested training forces."""
+    g = min(train, key=lambda x: abs(x - f))
+    arr = sorted(x for x in train if np.isfinite(D[x]['t_arr']))
+    la = np.log([D[x]['t_arr'] for x in arr])
+    if f > max(arr) and f > 1.7:                     # beyond the last arresting force: copy as is
+        return np.interp(t, C[g][0], C[g][1])
+    if f < arr[0] or f > arr[-1]:
+        sl = np.polyfit(arr[:2] if f < arr[0] else arr[-2:], la[:2] if f < arr[0] else la[-2:], 1)
+        ta_f = np.exp(np.polyval(sl, f))
+    else:
+        ta_f = np.exp(np.interp(f, arr, la))
+    ta_g = D[g]['t_arr'] if np.isfinite(D[g]['t_arr']) else ta_f
+    return np.interp(t * ta_g / ta_f, C[g][0], C[g][1])
 
 
 # ---------------------------------------------------------------------------
@@ -301,7 +327,7 @@ def run():
         forces_eval = forces
     C = {f: coarse(D[f]) for f in forces}
     D_ARR.update({f: D[f]['t_arr'] for f in forces})
-    models = ['HDMD-param', 'DeepKoopman', 'MasterCurve', 'ODE-B']
+    models = ['NeighbourBaseline', 'HDMD-param', 'DeepKoopman', 'MasterCurve', 'ODE-B']
     lofo, preds_a, prefix, preds_b = {}, {}, {}, {}
 
     print("=== Check of the ORIGINAL deep Koopman model (teacher forcing vs free running) ===")
@@ -316,6 +342,7 @@ def run():
         P = physics_bundle(D, train)
         dk = dk_train(C, D, train)
         pa = {
+            'NeighbourBaseline': neighbour_baseline(C, D, train, f, t),
             'HDMD-param': hdmd_param_predict(C, train, f, n),
             'DeepKoopman': np.r_[y_init, dk_predict(dk, f, y_init, n - N_INIT)],
             'MasterCurve': mastercurve_predict(P, f, t, y_init),
@@ -356,6 +383,10 @@ def run():
     plot_original(orig_curves, os.path.join(DOCS, "forecast_original_model.png"))
     out = dict(protocol_a=lofo, protocol_b=prefix, original_model=orig, summary=summary,
                settings=dict(sub=SUB, n_init=N_INIT, arrest_y=ARREST_Y, prefixes=PREFIXES, quick=QUICK))
+    np.savez_compressed(os.path.join(PROC, "forecast_predictions.npz"),
+                        **{f"t_{f}": C[f][0] for f in forces_eval}, **{f"y_{f}": C[f][1] for f in forces_eval},
+                        **{f"a_{f}_{m}": v for f in forces_eval for m, v in preds_a[f].items()},
+                        **{f"b_{f}_{p}_{m}": v for f in forces_eval for p in PREFIXES for m, v in preds_b[f][p].items()})
     with open(os.path.join(PROC, "forecast_results.json"), "w") as fh:
         json.dump(out, fh, indent=2, default=lambda o: None if isinstance(o, float) and not np.isfinite(o) else str(o))
     write_table(summary, orig, os.path.join(DOCS, "forecast_table.md"))
@@ -370,9 +401,10 @@ def summarise(lofo, prefix, forces):
             return float(np.median(np.minimum(np.abs(np.nan_to_num(v, nan=1.0, posinf=1.0, neginf=1.0)), 1.0)))
         return float(np.median(v[np.isfinite(v)]))
     S = {'a': {}, 'b': {}}
-    for m in ['HDMD-param', 'DeepKoopman', 'MasterCurve', 'ODE-B']:
+    for m in ['NeighbourBaseline', 'HDMD-param', 'DeepKoopman', 'MasterCurve', 'ODE-B']:
         rows = [lofo[f][m] for f in forces]
         S['a'][m] = dict(median_rmse_full=agg(rows, 'rmse_full'), median_rmse_slow=agg(rows, 'rmse_slow'),
+                         median_mae_slow=agg(rows, 'mae_slow'), median_r2_slow=agg(rows, 'r2_slow'),
                          median_abs_t_arr_err=agg(rows, 't_arr_rel_err'),
                          n_arrest_missed=int(sum(np.isinf(r['t_arr_pred']) and np.isfinite(r['t_arr_true']) for r in rows)),
                          n_false_arrest=int(sum(np.isfinite(r['t_arr_pred']) and np.isinf(r['t_arr_true']) for r in rows)))
@@ -397,7 +429,7 @@ def summarise(lofo, prefix, forces):
     return S
 
 
-COLORS = {'HDMD-param': 'tab:blue', 'HDMD-prefix': 'tab:blue', 'DeepKoopman': 'tab:green',
+COLORS = {'NeighbourBaseline': 'tab:gray', 'HDMD-param': 'tab:blue', 'HDMD-prefix': 'tab:blue', 'DeepKoopman': 'tab:green',
           'MasterCurve': 'tab:red', 'ODE-B': 'tab:purple'}
 
 
